@@ -1,23 +1,23 @@
-import React from "react";
+ import React from 'react'
+import ProductCard from './ProductCard'
 
-function ProductList({ products, addToCart }) {
+// Sample product data (for display purposes only)
+export const sampleProducts = [
+  { id: 1, name: 'Apple', price: '$1.00', category: 'Fruits', inStock: true },
+  { id: 2, name: 'Milk', price: '$2.50', category: 'Dairy', inStock: false }
+]
+
+const ProductList = () => {
   return (
     <div>
-      <h2>Products</h2>
+      <h2>Available Products</h2>
 
-      {products.map((product) => (
-        <div key={product.id}>
-          <p>
-            {product.name} - {product.category}
-          </p>
-
-          <button onClick={() => addToCart(product)}>
-            Add to Cart
-          </button>
-        </div>
+      {/* TODO: Filter sample data using selected category */}
+      {sampleProducts.map((product) => (
+        <ProductCard key={product.id} product={product} />
       ))}
     </div>
-  );
+  )
 }
 
-export default ProductList;
+export default ProductList
